@@ -2,7 +2,7 @@
 class CheckoutSolution:
 
     # skus = unicode string
-    def checkout( skus):
+    def checkout(skus):
         prices = {
             'A':50,
             'B':30,
@@ -35,10 +35,19 @@ class CheckoutSolution:
                 D_count+=1
 
         A_Offers=A_count/offers['A'][0]
-        print(A_Offers)
+        A_non_offers=A_count%offers['A'][0]
+
+        B_Offers=B_count/offers['B'][0]
+        B_non_offers=B_count%offers['B'][0]
+
+        total_price=A_Offers*offers['A'][1]+A_non_offers*prices['A']+B_Offers*offers['B'][1]+B_non_offers*prices['B']+C_count*prices['C']+D_count*prices['D']
+        return total_price
+
+    print(checkout("AAABBBCCD"))
 
 
-    checkout("AAAB")
+
+
 
 
 
