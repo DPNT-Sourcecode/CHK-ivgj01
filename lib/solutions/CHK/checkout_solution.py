@@ -1,4 +1,6 @@
 from collections import Counter
+from itertools import count
+
 
 class CheckoutSolution:
     def best_offer(self,sku, quantity):
@@ -14,10 +16,17 @@ class CheckoutSolution:
             price+=quantity*50
             return price
         elif sku =="B":
-            price += (quantity //2 *45)+count(%2)*30
+            price += (quantity //2 *45)+(quantity%2*30)
+            return price
+        elif sku=="C":
+            return count*20
+        elif sku=="D":
+            return count*15
+        elif sku=="E":
+            return count*40
         else:
-            value = 0
-        return value
+            return -1
+
 
     # skus = unicode string
     def checkout(skus):
@@ -65,6 +74,7 @@ class CheckoutSolution:
 
         total_price= A_Offers * best_offer("A", A_count) + A_non_offers * prices['A'] + B_Offers * best_offer("B", B_count) + B_non_offers * prices['B'] + C_count * prices['C'] + D_count * prices['D']
         return total_price
+
 
 
 
