@@ -15,7 +15,6 @@ class CheckoutSolution:
                 price += (quantity //3 *130)
 
                 quantity=quantity%3
-                print(quantity)
                 price+=quantity*50
             return price
         elif sku =="B":
@@ -67,5 +66,6 @@ class CheckoutSolution:
 
 checkout = CheckoutSolution()
 print(checkout.checkout("AAA"))
+
 
 
