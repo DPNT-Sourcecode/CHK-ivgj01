@@ -25,10 +25,7 @@ class CheckoutSolution:
         elif sku=="E":
             return quantity*40
         elif sku=="F":
-            price += (quantity // 3) * 20
-            quantity %= 3
-            price += quantity * 10
-            return price
+            return quantity*10
         elif sku=="G":
             return quantity*20
         elif sku=="H":
@@ -52,11 +49,42 @@ class CheckoutSolution:
         elif sku=="M":
             return quantity*15
         elif sku=="N":
-            price += (quantity // 4) * 120
-            quantity %= 4
-            price += quantity * 40
+            return quantity*40
+        elif sku=="O":
+            return quantity*10
+        elif sku=="P":
+            price += (quantity // 5) * 200
+            quantity %= 5
+            price += quantity * 50
             return price
-        
+        elif sku=="Q":
+            price += (quantity // 3) * 80
+            quantity %= 3
+            price += quantity * 30
+            return price
+        elif sku=="R":
+            return quantity*50
+        elif sku=="S":
+            return quantity*30
+        elif sku=="T":
+            return quantity*20
+        elif sku=="U":
+            return quantity*40
+        elif sku=="V":
+            price += (quantity // 3) * 130
+            quantity %= 3
+            price += (quantity // 2) * 90
+            quantity %= 2
+            price += quantity * 50
+            return price
+        elif sku=="W":
+            return quantity*20
+        elif sku=="X":
+            return quantity*90
+        elif sku=="Y":
+            return quantity*10
+        elif sku=="Z":
+            return quantity*50
         else:
             return -1
 
@@ -105,6 +133,18 @@ class CheckoutSolution:
         free_Bs=counts.get('E',0)//2
         counts['B']=max(0,counts.get('B',0)-free_Bs)
 
+        free_Fs=counts.get('F',0)//2
+        counts['F']=max(0,counts.get('F',0)-free_Fs)
+
+        free_Ms=counts.get('N',0)//3
+        counts['M']=max(0,counts.get('M',0)-free_Ms)
+
+        free_Qs = counts.get('R', 0) // 3
+        counts['Q'] = max(0, counts.get('Q', 0) - free_Qs)
+
+        free_Us = counts.get('U', 0) // 2
+        counts['U'] = max(0, counts.get('U', 0) - free_Us)
+
         for sku, count in counts.items():
             price=self.best_offer(sku, count)
             if price==-1:
@@ -119,7 +159,8 @@ class CheckoutSolution:
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("FFF"))
+print(checkout.checkout("FFFUUUMNSA"))
+
 
 
 
