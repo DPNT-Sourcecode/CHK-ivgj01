@@ -50,6 +50,8 @@ class CheckoutSolution:
 
         counts=Counter(skus)
 
+        free_Bs=counts.get('E',0)//2
+        counts['B']=max(0,counts.get('B',0)-free_Bs)
 
         for sku, count in counts.items():
             price=self.best_offer(sku, count)
@@ -65,7 +67,8 @@ class CheckoutSolution:
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("EE"))
+print(checkout.checkout("EEBB"))
+
 
 
 
