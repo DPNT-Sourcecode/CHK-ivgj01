@@ -40,9 +40,9 @@ class CheckoutSolution:
         elif sku=="J":
             return quantity * 60
         elif sku=="K":
-            price += (quantity // 2) * 150
+            price += (quantity // 2) * 120
             quantity %= 2
-            price += quantity * 80
+            price += quantity * 70
             return price
         elif sku=="L":
             return quantity*90
@@ -65,7 +65,7 @@ class CheckoutSolution:
         elif sku=="R":
             return quantity*50
         elif sku=="S":
-            return quantity*30
+            return quantity*20
         elif sku=="T":
             return quantity*20
         elif sku=="U":
@@ -80,11 +80,11 @@ class CheckoutSolution:
         elif sku=="W":
             return quantity*20
         elif sku=="X":
-            return quantity*90
+            return quantity*17
         elif sku=="Y":
-            return quantity*10
+            return quantity*20
         elif sku=="Z":
-            return quantity*50
+            return quantity*21
         else:
             return -1
 
@@ -120,7 +120,7 @@ class CheckoutSolution:
             'H': 10,
             'I': 35,
             'J': 60,
-            'K': 80,
+            'K': 70,
             'L': 90,
             'M': 15,
             'N': 40,
@@ -128,14 +128,14 @@ class CheckoutSolution:
             'P': 50,
             'Q': 30,
             'R': 50,
-            'S': 30,
+            'S': 20,
             'T': 20,
             'U': 40,
             'V': 50,
             'W': 20,
-            'X': 90,
-            'Y': 10,
-            'Z': 50
+            'X': 17,
+            'Y': 20,
+            'Z': 21
         }
 
         for sku in skus:
@@ -181,7 +181,8 @@ class CheckoutSolution:
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("FFFF"))
+print(checkout.checkout("STXYZ"))
+
 
 
 
