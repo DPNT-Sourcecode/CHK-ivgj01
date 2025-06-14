@@ -24,6 +24,10 @@ class CheckoutSolution:
             return quantity*15
         elif sku=="E":
             return quantity*40
+        elif sku=="F":
+            price += (quantity // 3) * 20
+            quantity %= 3
+            price += quantity * 10
         else:
             return -1
 
@@ -36,6 +40,7 @@ class CheckoutSolution:
             'C':20,
             'D':15,
             'E':40,
+            'F':10
         }
 
         for sku in skus:
@@ -66,11 +71,3 @@ class CheckoutSolution:
 
 checkout = CheckoutSolution()
 print(checkout.checkout("AAAAAAAA"))
-
-
-
-
-
-
-
-
