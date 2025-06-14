@@ -19,11 +19,11 @@ class CheckoutSolution:
             price += (quantity //2 *45)+(quantity%2*30)
             return price
         elif sku=="C":
-            return count*20
+            return quantity*20
         elif sku=="D":
-            return count*15
+            return quantity*15
         elif sku=="E":
-            return count*40
+            return quantity*40
         else:
             return -1
 
@@ -75,11 +75,4 @@ class CheckoutSolution:
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("AAA"))
-
-
-
-
-
-
-
+print(checkout.checkout("AAAC"))
