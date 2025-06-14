@@ -28,6 +28,7 @@ class CheckoutSolution:
             price += (quantity // 3) * 20
             quantity %= 3
             price += quantity * 10
+            return price
         else:
             return -1
 
@@ -70,4 +71,5 @@ class CheckoutSolution:
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("AAAAAAAA"))
+print(checkout.checkout("FFF"))
+
