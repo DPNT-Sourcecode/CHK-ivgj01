@@ -1,6 +1,6 @@
 
 class CheckoutSolution:
-
+    def best_offer(self, prices, offers):
     # skus = unicode string
     def checkout(self,skus):
         prices = {
@@ -8,10 +8,13 @@ class CheckoutSolution:
             'B':30,
             'C':20,
             'D':15,
+            'E':40,
         }
         offers = {
             'A': (3,130),
-            'B': (2,45),
+            'A': (5,200),
+            'B': (2,45)
+
         }
 
         for sku in skus:
@@ -46,12 +49,6 @@ class CheckoutSolution:
         print(B_non_offers)
         total_price=A_Offers*offers['A'][1]+A_non_offers*prices['A']+B_Offers*offers['B'][1]+B_non_offers*prices['B']+C_count*prices['C']+D_count*prices['D']
         return total_price
-
-
-
-
-
-
 
 
 
