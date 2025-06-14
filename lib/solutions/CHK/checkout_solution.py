@@ -88,11 +88,24 @@ class CheckoutSolution:
         else:
             return -1
 
-    def apply_group_discount(self,counts, group_price=45, group_size=3, prices=None):
+    def apply_group_discount(self,counts, prices):
         group_skus = ['S','T','X','Y','Z']
+        group_price=45
+        group_size=3
         group_items=[]
         for sku in group_skus:
-            
+            group_items+=[sku]*counts.get(sku,0)
+
+        group_items.sort(key=lambda sku: prices[sku], reverse=True)
+
+        num_groups = len(group_items)//group_size
+        total=num_groups*group_price
+
+        for i in range(num_groups*group_size):
+            counts[group_items[i]]-=1
+
+        return total,counts
+
 
     # skus = unicode string
     def checkout(self,skus):
@@ -150,6 +163,10 @@ class CheckoutSolution:
         free_Us = counts.get('U', 0) // 4
         counts['U'] = max(0, counts.get('U', 0) - free_Us)
 
+        group_total,counts = self.apply_group_discount(counts, prices)
+        total += group_total
+
+
         for sku, count in counts.items():
             price=self.best_offer(sku, count)
             if price==-1:
@@ -165,5 +182,6 @@ class CheckoutSolution:
 
 checkout = CheckoutSolution()
 print(checkout.checkout("FFFF"))
+
 
 
