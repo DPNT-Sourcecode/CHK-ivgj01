@@ -2,7 +2,7 @@ from idna import valid_label_length
 
 
 class CheckoutSolution:
-    def best_offer(self, sku, quantity):
+    def best_offer(self,sku, quantity):
 
 
         if sku =="A" and quantity<5:
@@ -11,10 +11,12 @@ class CheckoutSolution:
             value = 200
         elif sku =="B" and quantity>=2:
             value = 45
+        else:
+            value = 0
         return value
 
     # skus = unicode string
-    def checkout(self,skus):
+    def checkout(skus):
         prices = {
             'A':50,
             'B':30,
@@ -56,9 +58,11 @@ class CheckoutSolution:
         B_Offers=B_count//offers['B'][0]
         B_non_offers=B_count%offers['B'][0]
 
-        total_price= A_Offers * self.best_offer("A", A_count) + A_non_offers * prices['A'] + B_Offers * self.best_offer("B", B_count) + B_non_offers * prices['B'] + C_count * prices['C'] + D_count * prices['D']
+        total_price= A_Offers * best_offer("A", A_count) + A_non_offers * prices['A'] + B_Offers * best_offer("B", B_count) + B_non_offers * prices['B'] + C_count * prices['C'] + D_count * prices['D']
         return total_price
 
+
+    checkout("AAAABBCD")
 
 
 
