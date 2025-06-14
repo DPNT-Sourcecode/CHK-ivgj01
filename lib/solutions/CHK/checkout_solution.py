@@ -15,7 +15,7 @@ class CheckoutSolution:
                 price += (quantity //3 *130)
 
                 quantity=quantity%3
-                price+=quantity*50
+            price+=quantity*50
             return price
         elif sku =="B":
             price += (quantity //2 *45)+(quantity%2*30)
@@ -65,7 +65,8 @@ class CheckoutSolution:
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("AAA"))
+print(checkout.checkout("EE"))
+
 
 
 
