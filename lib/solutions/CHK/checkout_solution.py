@@ -29,7 +29,7 @@ class CheckoutSolution:
 
 
     # skus = unicode string
-    def checkout(skus):
+    def checkout(self,skus):
         prices = {
             'A':50,
             'B':30,
@@ -37,14 +37,7 @@ class CheckoutSolution:
             'D':15,
             'E':40,
         }
-        '''
-        offers = {
-            'A': (3,130),
-            'A': (5,200),
-            'B': (2,45)
 
-        }
-        '''
         for sku in skus:
             if sku not in prices:
                 return -1
@@ -65,19 +58,24 @@ class CheckoutSolution:
             elif sku=='D':
                 D_count+=1
 
-        A_Offers=A_count//offers['A'][0] # number of offer items
-        A_non_offers=A_count%offers['A'][0] # number of non offer items
+        counts=Counter(skus)
+        total_price=0
+
+        for sku, count in counts.items():
+            price=self.best_offer(sku, count)
+            if price==-1:
+                return -1
+            total+=price
 
 
-        B_Offers=B_count//offers['B'][0]
-        B_non_offers=B_count%offers['B'][0]
 
-        total_price= A_Offers * best_offer("A", A_count) + A_non_offers * prices['A'] + B_Offers * best_offer("B", B_count) + B_non_offers * prices['B'] + C_count * prices['C'] + D_count * prices['D']
         return total_price
 
 
 
 
+checkout = CheckoutSolution()
+print(checkout.checkout("AAAB"))
 
 
 
