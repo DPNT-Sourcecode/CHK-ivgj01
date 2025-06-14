@@ -1,6 +1,18 @@
+from idna import valid_label_length
+
 
 class CheckoutSolution:
-    def best_offer(self, prices, offers):
+    def best_offer(self, sku, quantity):
+
+
+        if sku =="A" and quantity<5:
+            value = 130
+        elif sku =="A" and quantity>=5:
+            value = 200
+        elif sku =="B" and quantity>=2:
+            value = 45
+        return value
+
     # skus = unicode string
     def checkout(self,skus):
         prices = {
@@ -37,18 +49,16 @@ class CheckoutSolution:
             elif sku=='D':
                 D_count+=1
 
-        A_Offers=A_count//offers['A'][0]
-        print(A_Offers)
-        A_non_offers=A_count%offers['A'][0]
-        print(A_non_offers)
+        A_Offers=A_count//offers['A'][0] # number of offer items
+        A_non_offers=A_count%offers['A'][0] # number of non offer items
 
 
         B_Offers=B_count//offers['B'][0]
-        print(B_Offers)
         B_non_offers=B_count%offers['B'][0]
-        print(B_non_offers)
-        total_price=A_Offers*offers['A'][1]+A_non_offers*prices['A']+B_Offers*offers['B'][1]+B_non_offers*prices['B']+C_count*prices['C']+D_count*prices['D']
+
+        total_price= A_Offers * self.best_offer("A", A_count) + A_non_offers * prices['A'] + B_Offers * self.best_offer("B", B_count) + B_non_offers * prices['B'] + C_count * prices['C'] + D_count * prices['D']
         return total_price
+
 
 
 
