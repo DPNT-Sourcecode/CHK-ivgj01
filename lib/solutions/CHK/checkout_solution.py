@@ -133,7 +133,7 @@ class CheckoutSolution:
         free_Bs=counts.get('E',0)//2
         counts['B']=max(0,counts.get('B',0)-free_Bs)
 
-        free_Fs=counts.get('F',0)//2
+        free_Fs=counts.get('F',0)//3
         counts['F']=max(0,counts.get('F',0)-free_Fs)
 
         free_Ms=counts.get('N',0)//3
@@ -142,7 +142,7 @@ class CheckoutSolution:
         free_Qs = counts.get('R', 0) // 3
         counts['Q'] = max(0, counts.get('Q', 0) - free_Qs)
 
-        free_Us = counts.get('U', 0) // 3
+        free_Us = counts.get('U', 0) // 4
         counts['U'] = max(0, counts.get('U', 0) - free_Us)
 
         for sku, count in counts.items():
@@ -159,7 +159,8 @@ class CheckoutSolution:
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("FFFUUUMNSA"))
+print(checkout.checkout("FFF"))
+
 
 
 
