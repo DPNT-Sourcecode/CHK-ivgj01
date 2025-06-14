@@ -59,7 +59,7 @@ class CheckoutSolution:
                 D_count+=1
 
         counts=Counter(skus)
-        total_price=0
+
 
         for sku, count in counts.items():
             price=self.best_offer(sku, count)
@@ -69,13 +69,14 @@ class CheckoutSolution:
 
 
 
-        return total_price
+        return total
 
 
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("AAAB"))
+print(checkout.checkout("AAA"))
+
 
 
 
