@@ -1,4 +1,3 @@
-from idna import valid_label_length
 
 
 class CheckoutSolution:
@@ -62,7 +61,7 @@ class CheckoutSolution:
         return total_price
 
 
-    checkout("AAAABBCD")
+
 
 
 
