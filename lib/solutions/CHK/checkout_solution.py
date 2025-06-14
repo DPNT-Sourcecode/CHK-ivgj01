@@ -1,15 +1,20 @@
-
+from collections import Counter
 
 class CheckoutSolution:
     def best_offer(self,sku, quantity):
+        price = 0
+        if sku =="A":
 
-
-        if sku =="A" and quantity<5:
-            value = 130
-        elif sku =="A" and quantity>=5:
-            value = 200
-        elif sku =="B" and quantity>=2:
-            value = 45
+            if quantity >=5:
+                price += (quantity //5 *200)
+                quantity%5
+            if quantity >=3:
+                price += (quantity //3 *130)
+                quantity%3
+            price+=quantity*50
+            return price
+        elif sku =="B":
+            price += (quantity //2 *45)+count(%2)*30
         else:
             value = 0
         return value
@@ -23,13 +28,14 @@ class CheckoutSolution:
             'D':15,
             'E':40,
         }
+        '''
         offers = {
             'A': (3,130),
             'A': (5,200),
             'B': (2,45)
 
         }
-
+        '''
         for sku in skus:
             if sku not in prices:
                 return -1
@@ -59,6 +65,7 @@ class CheckoutSolution:
 
         total_price= A_Offers * best_offer("A", A_count) + A_non_offers * prices['A'] + B_Offers * best_offer("B", B_count) + B_non_offers * prices['B'] + C_count * prices['C'] + D_count * prices['D']
         return total_price
+
 
 
 
