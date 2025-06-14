@@ -2,7 +2,7 @@
 class CheckoutSolution:
 
     # skus = unicode string
-    def checkout(self, skus):
+    def checkout( skus):
         prices = {
             'A':50,
             'B':30,
@@ -34,7 +34,12 @@ class CheckoutSolution:
             elif sku=='D':
                 D_count+=1
 
-        A_count/
+        A_Offers=A_count/offers['A'][0]
+        print(A_Offers)
+
+
+    checkout("AAAB")
+
 
 
 
