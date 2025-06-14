@@ -9,15 +9,14 @@ class CheckoutSolution:
 
             if quantity >=5:
                 price += (quantity //5 *200)
-                print(quantity)
-                print(sku)
-                quantity%5
+
+                quantity=quantity%5
             if quantity <= 3:
                 price += (quantity //3 *130)
+
+                quantity=quantity%3
                 print(quantity)
-                print(sku)
-                quantity%3
-            price+=quantity*50
+                price+=quantity*50
             return price
         elif sku =="B":
             price += (quantity //2 *45)+(quantity%2*30)
@@ -68,4 +67,5 @@ class CheckoutSolution:
 
 checkout = CheckoutSolution()
 print(checkout.checkout("AAA"))
+
 
