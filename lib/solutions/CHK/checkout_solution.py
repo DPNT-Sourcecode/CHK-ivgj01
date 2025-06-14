@@ -88,8 +88,11 @@ class CheckoutSolution:
         else:
             return -1
 
-    def apply_group_discount(self,counts, group_skus, group_price=45, group_size=3, prices=None):
-
+    def apply_group_discount(self,counts, group_price=45, group_size=3, prices=None):
+        group_skus = ['S','T','X','Y','Z']
+        group_items=[]
+        for sku in group_skus:
+            
 
     # skus = unicode string
     def checkout(self,skus):
@@ -162,4 +165,5 @@ class CheckoutSolution:
 
 checkout = CheckoutSolution()
 print(checkout.checkout("FFFF"))
+
 
