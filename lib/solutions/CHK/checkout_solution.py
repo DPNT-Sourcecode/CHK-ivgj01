@@ -29,6 +29,34 @@ class CheckoutSolution:
             quantity %= 3
             price += quantity * 10
             return price
+        elif sku=="G":
+            return quantity*20
+        elif sku=="H":
+            price += (quantity // 10) * 80
+            quantity %= 10
+            price += (quantity // 5) * 45
+            quantity %= 5
+            price += quantity * 10
+            return price
+        elif sku=="I":
+            return quantity * 35
+        elif sku=="J":
+            return quantity * 60
+        elif sku=="K":
+            price += (quantity // 2) * 150
+            quantity %= 2
+            price += quantity * 80
+            return price
+        elif sku=="L":
+            return quantity*90
+        elif sku=="M":
+            return quantity*15
+        elif sku=="N":
+            price += (quantity // 4) * 120
+            quantity %= 4
+            price += quantity * 40
+            return price
+        
         else:
             return -1
 
@@ -92,5 +120,6 @@ class CheckoutSolution:
 
 checkout = CheckoutSolution()
 print(checkout.checkout("FFF"))
+
 
 
