@@ -159,10 +159,4 @@ class CheckoutSolution:
 
 
 checkout = CheckoutSolution()
-print(checkout.checkout("FFF"))
-
-
-
-
-
-
+print(checkout.checkout("FFFF"))
