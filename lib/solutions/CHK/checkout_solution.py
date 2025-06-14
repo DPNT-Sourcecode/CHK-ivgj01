@@ -5,6 +5,7 @@ from itertools import count
 class CheckoutSolution:
     def best_offer(self,sku, quantity):
         price = 0
+
         if sku =="A":
 
             if quantity >=5:
@@ -68,6 +69,7 @@ class CheckoutSolution:
 
 checkout = CheckoutSolution()
 print(checkout.checkout("AAA"))
+
 
 
 
